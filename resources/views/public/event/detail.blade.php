@@ -1,5 +1,9 @@
 @extends('layouts.frontend')
 
+@section('title')
+    Lombaku - Event Detail
+@endsection
+
 @section('content')
 <div class="mt-28 px-60">
     <h1 class="font-bold font-dosis text-green-dark text-5xl text-center">

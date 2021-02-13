@@ -1,5 +1,9 @@
 @extends('layouts.frontend')
 
+@section('title')
+    Lombaku - Beranda
+@endsection
+
 @section('content')
 <main class="mt-4">
     <div class="flex justify-between items-center">

@@ -1,6 +1,6 @@
 <header class="mt-10 flex justify-between">
     <a href="/" class="flex items-center">
-        <img src="" alt="" />
+        <img src="{{ asset('asset/icon/navbar-brand.png') }}" alt="" />
         <span class="ml-3 font-montserrat font-bold text-xl">LombaKu</span>
     </a>
     <div class="w-4/12 relative">
@@ -12,6 +12,14 @@
             </svg>
         </span>
     </div>
+
+    @guest
+    <button class="w-20 rounded-md bg-green-dark text-center text-white font-montserrat hover:bg-green-600">
+        <a class="w-full" href="{{ route('login') }}">Login</a>
+    </button>
+    @endguest
+
+    @auth
     <div class="flex items-center space-x-8">
         <a href="/">
             <svg width="24" height="17" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,4 +35,6 @@
             <img src="" alt="" />
         </span>
     </div>
+    @endauth
+
 </header>
