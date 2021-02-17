@@ -10,7 +10,7 @@ class Form extends Model
 {
     use HasFactory, Sluggable;
 
-    protected $fillable = ['user_id', 'title', 'desc', 'max_user', 'closed_at'];
+    protected $fillable = ['user_id', 'title', 'thumbnail', 'desc', 'max_user', 'total_prize', 'closed_at'];
 
     public function sluggable(): array
     {
@@ -24,5 +24,10 @@ class Form extends Model
     public function formQuestion()
     {
         return $this->hasMany(FormQuestion::class, 'form_id');
+    }
+
+    public function prizes()
+    {
+        return $this->hasMany(Prize::class, 'form_id');
     }
 }

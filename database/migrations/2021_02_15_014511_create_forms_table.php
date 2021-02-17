@@ -18,8 +18,10 @@ class CreateFormsTable extends Migration
             $table->foreignId('user_id')->constrained();
             $table->string('title');
             $table->string('slug');
+            $table->string('thumbnail');
             $table->text('desc');
             $table->integer('max_user');
+            $table->integer('total_prize')->nullable();
             $table->date('closed_at');
             $table->timestamps();
         });
