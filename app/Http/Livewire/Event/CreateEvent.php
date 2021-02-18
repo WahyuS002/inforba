@@ -75,40 +75,6 @@ class CreateEvent extends Component
         );
 
         $this->currentStep = 2;
-
-        // $form = Form::create([
-        //     'user_id' => auth()->user()->id,
-        //     'title' => $this->title,
-        //     'thumbnail' => $this->thumbnail->store('thumbnail'),
-        //     'desc' => $this->desc,
-        //     'max_user' => $this->max_user,
-        //     'closed_at' => $this->closed_at,
-        // ]);
-
-        // foreach ($this->question as $key => $value) {
-        //     if (isset($this->img[$key]) || isset($this->doc[$key]) || isset($this->pdf[$key])) {
-        //         $file_rules = json_encode(
-        //             ["mimes" => [
-        //                 isset($this->img[$key]) ? $this->img[$key] : '',
-        //                 isset($this->doc[$key]) ? $this->doc[$key] : '',
-        //                 isset($this->pdf[$key]) ? $this->pdf[$key] : '',
-        //             ]]
-        //         );
-        //         FormQuestion::create([
-        //             'form_id' => $form->id,
-        //             'question' => $this->question[$key],
-        //             'question_type' => $this->question_type[$key],
-        //             'is_required' => isset($this->is_required[$key]) ? $this->is_required[$key] : 0,
-        //             'file_rules' => $file_rules,
-        //         ]);
-
-        //         $file_rules = '';
-        //     }
-        // }
-
-        // $this->inputs = [];
-
-        // $this->resetInputFields();
     }
 
     public function remove($i)
@@ -155,14 +121,6 @@ class CreateEvent extends Component
         );
 
         $this->currentStep = 3;
-
-        // foreach ($this->timeline as $key => $value) {
-        //     Timeline::create([
-        //         'form_id' => 1,
-        //         'timeline' => $this->timeline[$key],
-        //         'timeline_info' => $this->timeline_info[$key],
-        //     ]);
-        // }
 
         $this->timeline_inputs = [];
         // $this->resetTimelineInputFields();
