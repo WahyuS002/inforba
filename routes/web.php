@@ -21,6 +21,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('/event', 'EventController@index')->name('app.event');
     Route::get('/event-create', 'EventController@create')->name('app.event.create');
+    Route::get('/event-registration', 'EventController@registration')->name('app.event.registration');
 });
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return view('dashboard');

@@ -36,16 +36,38 @@
                             <div class="px-4 py-5 flex-auto">
                                 <div class="tab-content tab-space">
                                     <div class="block" id="tab-profile">
-                                        <p>
-                                            Collaboratively administrate empowered markets via
-                                            plug-and-play networks. Dynamically procrastinate B2C users
-                                            after installed base benefits.
-                                            <br />
-                                            <br />
-                                            Dramatically visualize customer directed convergence
-                                            without revolutionary ROI.
-                                        </p>
+                                        <!-- component -->
+                                        <div class="container mx-auto w-full h-full">
+                                            <div class="relative wrap overflow-hidden p-10 h-full">
+                                                <div class="border-2-2 absolute border-opacity-20 border-gray-700 h-full border" style="left: 50%"></div>
+                                                <!-- right timeline -->
+                                                <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                                                    <div class="order-1 w-5/12"></div>
+                                                    <div class="z-20 flex items-center order-1 bg-violet-middle shadow-xl w-8 h-8 rounded-full">
+                                                        <h1 class="mx-auto font-semibold text-lg text-white">2</h1>
+                                                    </div>
+                                                    <div class="order-1 bg-violet-light rounded-lg shadow-xl w-5/12 px-6 py-4">
+                                                        <h3 class="mb-3 font-bold text-white text-xl">Lorem Ipsum</h3>
+                                                        <p class="text-sm leading-snug tracking-wide text-gray-100 text-opacity-100">3 Februari 2020</p>
+                                                    </div>
+                                                </div>
+
+                                                <!-- left timeline -->
+                                                <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                                                    <div class="order-1 w-5/12"></div>
+                                                    <div class="z-20 flex items-center order-1 bg-violet-middle shadow-xl w-8 h-8 rounded-full">
+                                                        <h1 class="mx-auto text-white font-semibold text-lg">1</h1>
+                                                    </div>
+                                                    <div class="order-1 bg-green-dark rounded-lg shadow-xl w-5/12 px-6 py-4">
+                                                        <h3 class="mb-3 font-bold text-white text-xl">Lorem Ipsum</h3>
+                                                        <p class="text-sm font-medium leading-snug tracking-wide text-gray-100 text-opacity-100">3 Februari 2020</p>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
                                     </div>
+
                                     <div class="hidden" id="tab-settings">
                                         <p>
                                             Completely synergize resource taxing relationships via
@@ -77,16 +99,16 @@
             tabContents = document.getElementById("tabs-id").querySelectorAll(".tab-content > div");
             for(let i = 0 ; i < aElements.length; i++){
                 aElements[i].classList.remove("text-white");
-                aElements[i].classList.remove("bg-pink-600");
-                aElements[i].classList.add("text-pink-600");
+                aElements[i].classList.remove("bg-green-dark");
+                aElements[i].classList.add("text-violet-middle");
                 aElements[i].classList.add("bg-white");
                 tabContents[i].classList.add("hidden");
                 tabContents[i].classList.remove("block");
             }
-            element.classList.remove("text-pink-600");
+            element.classList.remove("text-violet-middle");
             element.classList.remove("bg-white");
             element.classList.add("text-white");
-            element.classList.add("bg-pink-600");
+            element.classList.add("bg-green-dark");
             document.getElementById(tabID).classList.remove("hidden");
             document.getElementById(tabID).classList.add("block");
         }

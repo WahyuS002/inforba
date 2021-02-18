@@ -9,6 +9,9 @@ module.exports = {
 
     theme: {
         extend: {
+            width:{
+                '110': '30rem',
+            },
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
                 montserrat: ['Montserrat'],

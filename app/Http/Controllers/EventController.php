@@ -15,4 +15,9 @@ class EventController extends Controller
     {
         return view('backend.event.create');
     }
+
+    public function registration()
+    {
+        return view('public.event.registration');
+    }
 }

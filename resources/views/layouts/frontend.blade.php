@@ -7,17 +7,20 @@
     <link rel="icon" href="{{ asset('asset/icon/favicon.png') }}" type="image/png" sizes="16x16">
 
     @include('includes.frontend.style')
+    @yield('style-below')
 
     <title>@yield('title')</title>
 </head>
 <body>
 
-    <div class="container mx-auto px-24">
+    <div class="container mx-auto px-12 lg:px-24">
 
         @include('includes.frontend.navbar')
 
         @yield('content')
     </div>
+
+    @include('includes.frontend.bottom-navbar')
 
     @include('includes.frontend.script')
     @yield('script-below')

@@ -5,26 +5,25 @@
 @endsection
 
 @section('content')
-<main class="mt-4">
-    <div class="flex justify-between items-center">
+<main class="mt-8 lg:mt-4">
+    <div class="flex flex-col-reverse lg:flex-row justify-between items-center">
         <div>
-            <h1 class="font-dosis font-bold text-6xl text-green-dark">
+            <h1 class="font-dosis font-bold text-4xl text-center lg:text-left lg:text-6xl text-green-dark">
                 Be a Winner Right Now
             </h1>
-            <h2 class="mt-5 font-dosis font-semibold text-2xl text-violet-dark">Cari lomba yang cocok untukmu sekarang!</h2>
+            <h2 class="mt-5 font-dosis font-semibold text-xl text-center lg:text-left lg:text-2xl text-violet-dark">Cari lomba yang cocok untukmu sekarang!</h2>
             <div class="mt-12 relative h-auto w-auto rounded-lg overflow-hidden shadow-xl">
-                <input type="text" class="w-11/12 py-5 px-3 border border-violet-middle focus:outline-none font-montserrat text-lg rounded-lg" placeholder="Cari Lomba..."/>
-                <div class="bg-green-dark w-24 h-24 absolute top-0 right-0"></div>
-
-                <span class="absolute top-4 right-7">
-                    <svg width="40" height="38" viewBox="0 0 40 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <input type="text" class="w-11/12 py-2 lg:py-5 px-3 border border-violet-middle focus:outline-none font-montserrat text-md lg:text-lg rounded-lg" placeholder="Cari Lomba..."/>
+                <div class="bg-green-dark w-16 h-24 lg:w-24 lg:h-24 absolute top-0 right-0"></div>
+                <span class="absolute top-3 right-5 lg:top-4 lg:right-7">
+                    <svg class="w-6 h-6 lg:w-10 lg:h-10" viewBox="0 0 40 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="16.9927" cy="16.72" r="13.3352" stroke="#E7FBF1" stroke-width="5.55632"/>
                         <rect x="26.3821" y="21.666" width="17.6661" height="6.01825" rx="3.00913" transform="rotate(39.5699 26.3821 21.666)"fill="#E7FBF1"/>
                     </svg>
                 </span>
             </div>
 
-            <div class="mt-12 text-violet-middle text-sm font-montserrat space-x-3">
+            <div class="flex flex-wrap items-center mt-12 text-violet-middle text-xs lg:text-sm font-montserrat space-x-1 space-y-1 lg:space-y-0 lg:space-x-3">
                 <span>Populer :</span>
                 <span class="bg-green-light px-4 py-1 rounded-md">Programming</span>
                 <span class="bg-green-light px-4 py-1 rounded-md">Gaming</span>
@@ -32,21 +31,21 @@
             </div>
         </div>
         <div>
-            <lottie-player autoplay loop mode="normal" src="{{ asset('asset/lottie/hero-section.json') }}" style="width: 30rem">
+            <lottie-player autoplay loop mode="normal" src="{{ asset('asset/lottie/hero-section.json') }}" class="w-80 lg:w-110">
             </lottie-player>
         </div>
     </div>
 
     <!-- START POPULAR CATEGORY -->
-    <h2 class="text-2xl font-bold text-violet-middle">
+    <h2 class="text-xl lg:text-2xl font-bold text-violet-middle mt-12 lg:mt-0">
         Kategori Populer
     </h2>
-    <div class="grid grid-cols-5 space-x-2 mt-8 justify-items-center">
-        <div class="w-11/12 h-72 bg-gray-400 rounded-md"></div>
-        <div class="w-11/12 h-72 bg-gray-400 rounded-md"></div>
-        <div class="w-11/12 h-72 bg-gray-400 rounded-md"></div>
-        <div class="w-11/12 h-72 bg-gray-400 rounded-md"></div>
-        <div class="w-11/12 h-72 bg-gray-400 rounded-md"></div>
+    <div class="grid grid-cols-1 lg:grid-cols-5 space-y-2 lg:space-y-0 lg:space-x-2 mt-8 justify-items-center">
+        <div class="w-11/12 h-52 lg:h-72 bg-gray-400 rounded-md"></div>
+        <div class="w-11/12 h-52 lg:h-72 bg-gray-400 rounded-md"></div>
+        <div class="w-11/12 h-52 lg:h-72 bg-gray-400 rounded-md"></div>
+        <div class="w-11/12 h-52 lg:h-72 bg-gray-400 rounded-md"></div>
+        <div class="w-11/12 h-52 lg:h-72 bg-gray-400 rounded-md"></div>
     </div>
     <!-- END POPULAR CATEGORY -->
 
