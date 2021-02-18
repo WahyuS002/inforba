@@ -15,7 +15,7 @@ class CreatePrizesTable extends Migration
     {
         Schema::create('prizes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('form_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('event_id')->constrained()->cascadeOnDelete();
             $table->integer('prize');
             $table->timestamps();
         });

@@ -15,7 +15,7 @@ class CreateTimelinesTable extends Migration
     {
         Schema::create('timelines', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('form_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('event_id')->constrained()->cascadeOnDelete();
             $table->string('timeline_info');
             $table->date('timeline');
             $table->timestamps();

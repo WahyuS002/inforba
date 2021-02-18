@@ -9,5 +9,5 @@ class Timeline extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['form_id', 'timeline', 'timeline_info'];
+    protected $fillable = ['event_id', 'timeline', 'timeline_info'];
 }

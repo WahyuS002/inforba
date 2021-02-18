@@ -15,7 +15,7 @@ class CreateFormQuestionsTable extends Migration
     {
         Schema::create('form_questions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('form_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('event_id')->constrained()->cascadeOnDelete();
             $table->mediumText('question');
             $table->integer('question_type');
             $table->boolean('is_required');

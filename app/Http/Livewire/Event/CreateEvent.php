@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Event;
 
-use App\Models\Form;
+use App\Models\Event;
 use App\Models\FormQuestion;
 use App\Models\Prize;
 use App\Models\Timeline;
@@ -162,7 +162,7 @@ class CreateEvent extends Component
             ]
         );
 
-        $form = Form::create([
+        $event = Event::create([
             'user_id' => auth()->user()->id,
             'title' => $this->title,
             'thumbnail' => $this->thumbnail->store('thumbnail'),
@@ -183,7 +183,7 @@ class CreateEvent extends Component
                 $file_rules = '';
             }
             FormQuestion::create([
-                'form_id' => $form->id,
+                'event_id' => $event->id,
                 'question' => $this->question[$key],
                 'question_type' => $this->question_type[$key],
                 'is_required' => isset($this->is_required[$key]) ? $this->is_required[$key] : 0,
@@ -193,7 +193,7 @@ class CreateEvent extends Component
 
         foreach ($this->timeline as $key => $value) {
             Timeline::create([
-                'form_id' => $form->id,
+                'event_id' => $event->id,
                 'timeline' => $this->timeline[$key],
                 'timeline_info' => $this->timeline_info[$key],
             ]);
@@ -201,13 +201,13 @@ class CreateEvent extends Component
 
         foreach ($this->prize as $key => $value) {
             Prize::create([
-                'form_id' => $form->id,
+                'event_id' => $event->id,
                 'prize' => $this->prize[$key],
             ]);
         }
 
-        Form::find($form->id)->update([
-            'total_prize' => $form->prizes->sum('prize'),
+        Event::find($event->id)->update([
+            'total_prize' => $event->prizes->sum('prize'),
         ]);
     }
 }

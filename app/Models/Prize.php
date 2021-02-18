@@ -9,5 +9,5 @@ class Prize extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['form_id', 'prize'];
+    protected $fillable = ['event_id', 'prize'];
 }

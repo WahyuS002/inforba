@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 
-class Form extends Model
+class Event extends Model
 {
     use HasFactory, Sluggable;
 
@@ -23,11 +23,11 @@ class Form extends Model
 
     public function formQuestion()
     {
-        return $this->hasMany(FormQuestion::class, 'form_id');
+        return $this->hasMany(FormQuestion::class, 'event_id');
     }
 
     public function prizes()
     {
-        return $this->hasMany(Prize::class, 'form_id');
+        return $this->hasMany(Prize::class, 'event_id');
     }
 }
