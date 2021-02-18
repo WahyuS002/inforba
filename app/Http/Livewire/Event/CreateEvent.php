@@ -14,7 +14,7 @@ class CreateEvent extends Component
 {
     use WithFileUploads;
 
-    public $currentStep = 1;
+    public $currentStep = 3;
 
     /* UMUM - STEP 1 */
     public $question, $question_type, $desc, $closed_at, $max_user, $is_required, $file_rules, $thumbnail;
@@ -137,11 +137,11 @@ class CreateEvent extends Component
         $this->currentStep -= 1;
     }
 
-    public function addPrize($i)
+    public function addPrize($k)
     {
-        $i = $i + 1;
-        $this->i = $i;
-        array_push($this->prize_inputs, $i);
+        $k = $k + 1;
+        $this->k = $k;
+        array_push($this->prize_inputs, $k);
     }
 
     public function removePrize($i)
