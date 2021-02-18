@@ -173,22 +173,22 @@ class CreateEvent extends Component
 
         foreach ($this->question as $key => $value) {
             if (isset($this->img[$key]) || isset($this->doc[$key]) || isset($this->pdf[$key])) {
-                $file_rules = json_encode(
+                $file_rules[$key] = json_encode(
                     ["mimes" => [
                         isset($this->img[$key]) ? $this->img[$key] : '',
                         isset($this->doc[$key]) ? $this->doc[$key] : '',
                         isset($this->pdf[$key]) ? $this->pdf[$key] : '',
                     ]]
                 );
-                $file_rules = '';
             }
             FormQuestion::create([
                 'event_id' => $event->id,
                 'question' => $this->question[$key],
                 'question_type' => $this->question_type[$key],
                 'is_required' => isset($this->is_required[$key]) ? $this->is_required[$key] : 0,
-                'file_rules' => isset($file_rules) ? $file_rules : null,
+                'file_rules' => isset($file_rules[$key]) ? $file_rules[$key] : null,
             ]);
+            $file_rules[$key] = '';
         }
 
         foreach ($this->timeline as $key => $value) {
