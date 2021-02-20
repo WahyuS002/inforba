@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('app.event') }}" :active="request()->routeIs('app.event') || request()->routeIs('app.event.create')">
+                    <x-jet-nav-link href="{{ route('app.event') }}" :active="request()->routeIs('app.event') || request()->routeIs('app.event.create') || request()->routeIs('app.event.payment')">
                         {{ __('Lomba') }}
                     </x-jet-nav-link>
                 </div>

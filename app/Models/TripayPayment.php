@@ -72,7 +72,7 @@ class TripayPayment extends Model
         $apiKey = 'N4HKoik0M2YT4RQCnGPgUTEUzZ8ok5y0jYTtsAo7';
         $privateKey = 'MIe7T-aZdTk-x8dr3-p0yCk-iZ0AH';
         $merchantCode = 'T2642';
-        $merchantRef = 'TP3857';
+        $merchantRef = 'INV-' . time();
         $amount = $harga + 10000;
 
         $data = [

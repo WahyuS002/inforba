@@ -8,6 +8,7 @@ class TripayController extends Controller
 {
     public function callback(Request $request)
     {
-        dd($request->all());
+        $json = file_get_contents(url('/') . "/callback-tripay");
+        dd($json);
     }
 }

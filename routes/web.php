@@ -18,7 +18,7 @@ Route::get('/event-detail', 'PagesController@eventDetail')->name('public.event-d
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::middleware(['checkRole:admin'])->group(function () {
-        Route::post('/callback-tripay', 'TripayController@callback');
+        Route::get('/callback-tripay', 'TripayController@callback');
     });
 
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');

@@ -22,7 +22,6 @@ class Payment extends Component
 
     public function render()
     {
-        // $banks = ['BCAVA', 'MANDIRIVA', 'BNIVA'];
         $instruksi = $this->instruksi;
         $requestPembayaran = $this->requestPembayaran;
 
@@ -35,5 +34,6 @@ class Payment extends Component
 
         $this->bank = $bank;
         $this->requestPembayaran = $tripay->requestPembayaran($this->bank, $this->prize_total, $this->event);
+        $this->instruksi = $this->requestPembayaran['instructions'][0]['steps'];
     }
 }
