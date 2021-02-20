@@ -14,7 +14,7 @@ class CreateEvent extends Component
 {
     use WithFileUploads;
 
-    public $currentStep = 3;
+    public $currentStep = 1;
 
     /* UMUM - STEP 1 */
     public $question, $question_type, $desc, $closed_at, $max_user, $is_required, $file_rules, $thumbnail;
@@ -202,7 +202,7 @@ class CreateEvent extends Component
         foreach ($this->prize as $key => $value) {
             Prize::create([
                 'event_id' => $event->id,
-                'prize' => $this->prize[$key],
+                'prize' => currencyIDRToNumeric($this->prize[$key]),
             ]);
         }
 

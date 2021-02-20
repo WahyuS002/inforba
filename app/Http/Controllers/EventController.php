@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -19,5 +20,12 @@ class EventController extends Controller
     public function registration()
     {
         return view('public.event.registration');
+    }
+
+    public function payment($slug)
+    {
+        $event = Event::where('slug', $slug)->first();
+
+        return view('public.event.payment', compact('event'));
     }
 }

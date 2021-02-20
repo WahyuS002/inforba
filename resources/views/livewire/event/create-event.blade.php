@@ -77,6 +77,11 @@
                     </div>
                 </div>
             </div>
+
+            <div class="text-center pt-12">
+                <h1 class="font-montserrat font-medium text-violet-middle text-xl">Form Peserta</h1>
+            </div>
+
             <div class="bg-white overflow-hidden shadow-md sm:rounded-lg border-l-8 border-green-light p-8">
                 <div class="flex justify-between items-center">
                     <div>
@@ -164,6 +169,11 @@
                 </svg>
             </span>
 
+
+            <div class="text-center">
+                <img class="w-10 h-10" src="{{ asset('asset/gif/spinner.gif') }}" alt="" wire:loading wire:target="add">
+            </div>
+
             <div class="flex justify-center">
                 <button class="font-montserrat hover:bg-green-600 text-green-light bg-green-dark px-4 py-2 rounded-md" wire:click.prevent="firstStepSubmit()">Lanjut</button>
             </div>
@@ -223,7 +233,7 @@
             <div class="bg-white overflow-hidden shadow-md sm:rounded-lg border-l-8 border-green-light p-8">
                 <div class="flex items-center">
                     <label class="mr-3 bg-green-dark px-3 py-1 rounded-md text-white font-montserrat" for="">Juara 1</label>
-                    <input class="text-violet-middle block rounded-md font-medium text-md border-none focus:outline-none" type="number" wire:model="prize.0" placeholder="Reward">
+                    <input class="text-violet-middle block rounded-md font-medium text-md border-none focus:outline-none" type="text" wire:model="prize.0" placeholder="Reward" type-currency="IDR">
                     @error('prize.0')<span class="mt-2 text-sm text-red-500 block px-3 text-danger">{{ $message }}</span>@enderror
                 </div>
             </div>
@@ -232,7 +242,7 @@
             <div class="bg-white overflow-hidden shadow-md sm:rounded-lg border-l-8 border-green-light p-8">
                 <div class="flex items-center relative">
                     <label class="mr-3 bg-green-dark px-3 py-1 rounded-md text-white font-montserrat" for="">Juara {{ $key + 2 }}</label>
-                    <input class="text-violet-middle block rounded-md font-medium text-md border-none focus:outline-none" type="number" wire:model="prize.{{ $value }}" placeholder="Reward">
+                    <input class="text-violet-middle block rounded-md font-medium text-md border-none focus:outline-none" type="text" wire:model="prize.{{ $value }}" placeholder="Reward" type-currency="IDR">
                     @error('prize.'.$value)<span class="mt-2 text-sm text-red-500 block px-3 text-danger">{{ $message }}</span>@enderror
                     <div class="flex justify-end mb-3 absolute top-3 right-3" wire:click.prevent="removePrize({{ $key }})">
                         <span>
@@ -262,6 +272,28 @@
 
 
     <script>
+        window.setInterval(() => {
+            document.querySelectorAll('input[type-currency="IDR"]').forEach((element) => {
+                element.addEventListener('keyup', function(e) {
+                    let cursorPostion = this.selectionStart;
+                    let value = parseInt(this.value.replace(/[^,\d]/g, ''));
+                    let originalLenght = this.value.length;
+                    if (isNaN(value)) {
+                        this.value = "";
+                    } else {
+                        this.value = value.toLocaleString('id-ID', {
+                            currency: 'IDR',
+                            style: 'currency',
+                            minimumFractionDigits: 0
+                        });
+                        cursorPostion = this.value.length - originalLenght + cursorPostion;
+                        this.setSelectionRange(cursorPostion, cursorPostion);
+                    }
+                });
+            });
+        }, 1000);
+
+
         var loadFile = function(event) {
             var output = document.getElementById('output');
             output.src = URL.createObjectURL(event.target.files[0]);

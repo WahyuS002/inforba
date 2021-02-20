@@ -30,4 +30,14 @@ class Event extends Model
     {
         return $this->hasMany(Prize::class, 'event_id');
     }
+
+    public function timelines()
+    {
+        return $this->hasMany(Timeline::class, 'event_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

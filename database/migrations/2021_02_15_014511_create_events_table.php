@@ -23,6 +23,8 @@ class CreateEventsTable extends Migration
             $table->integer('max_user');
             $table->integer('total_prize')->nullable();
             $table->date('closed_at');
+            $table->string('payment')->nullable();
+            $table->enum('paid_off', ['failed', 'pending', 'success']);
             $table->timestamps();
         });
     }

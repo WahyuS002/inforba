@@ -17,11 +17,16 @@ Route::get('/', 'PagesController@home')->name('public.home');
 Route::get('/event-detail', 'PagesController@eventDetail')->name('public.event-detail');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::middleware(['checkRole:admin'])->group(function () {
+        Route::post('/callback-tripay', 'TripayController@callback');
+    });
+
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
     Route::get('/event', 'EventController@index')->name('app.event');
     Route::get('/event-create', 'EventController@create')->name('app.event.create');
     Route::get('/event-registration', 'EventController@registration')->name('app.event.registration');
+    Route::get('/event-payment/{event:slug}', 'EventController@payment')->name('app.event.payment');
 });
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return view('dashboard');
