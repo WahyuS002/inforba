@@ -32,39 +32,41 @@
                             </a>
                         </div>
 
-                        <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+                        <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 rounded">
                             <div class="px-4 py-5 flex-auto">
                                 <div class="tab-content tab-space">
                                     <div class="block" id="tab-profile">
                                         <!-- component -->
-                                        <div class="container mx-auto w-full h-full">
-                                            <div class="relative wrap overflow-hidden p-10 h-full">
-                                                <div class="border-2-2 absolute border-opacity-20 border-gray-700 h-full border" style="left: 50%"></div>
-                                                <!-- right timeline -->
-                                                <div class="mb-8 flex justify-between items-center w-full right-timeline">
-                                                    <div class="order-1 w-5/12"></div>
-                                                    <div class="z-20 flex items-center order-1 bg-violet-middle shadow-xl w-8 h-8 rounded-full">
-                                                        <h1 class="mx-auto font-semibold text-lg text-white">2</h1>
-                                                    </div>
-                                                    <div class="order-1 bg-violet-light rounded-lg shadow-xl w-5/12 px-6 py-4">
-                                                        <h3 class="mb-3 font-bold text-white text-xl">Lorem Ipsum</h3>
-                                                        <p class="text-sm leading-snug tracking-wide text-gray-100 text-opacity-100">3 Februari 2020</p>
-                                                    </div>
-                                                </div>
-
-                                                <!-- left timeline -->
-                                                <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
-                                                    <div class="order-1 w-5/12"></div>
-                                                    <div class="z-20 flex items-center order-1 bg-violet-middle shadow-xl w-8 h-8 rounded-full">
-                                                        <h1 class="mx-auto text-white font-semibold text-lg">1</h1>
-                                                    </div>
-                                                    <div class="order-1 bg-green-dark rounded-lg shadow-xl w-5/12 px-6 py-4">
-                                                        <h3 class="mb-3 font-bold text-white text-xl">Lorem Ipsum</h3>
-                                                        <p class="text-sm font-medium leading-snug tracking-wide text-gray-100 text-opacity-100">3 Februari 2020</p>
-                                                    </div>
-                                                </div>
-
-                                            </div>
+                                        <div class="bg-gray-100 px-3 rounded">
+                                            <table class="text-left w-full border-separate" style="border-spacing: 0 20px;"> <!--Border collapse doesn't work on this site yet but it's available in newer tailwind versions -->
+                                                <thead>
+                                                    <tr>
+                                                        <th class="py-4 px-6 bg-gray-100 text-gray-400 font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Nama Lomba</th>
+                                                        <th class="py-4 px-6 bg-gray-100 text-gray-400 font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Total Hadiah</th>
+                                                        <th class="py-4 px-6 bg-gray-100 text-gray-400 font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="bg-white hover:bg-green-light py-2">
+                                                        <td class="py-4 px-6 border-b border-grey-light">New York</td>
+                                                        <td class="py-4 px-6 border-b border-grey-light">
+                                                            <span class="px-2">Rp. 100,000</span>
+                                                        </td>
+                                                        <td class="py-4 px-6 border-b border-grey-light">
+                                                            <span class="bg-red-300 px-2 rounded-md text-red-700 font-semibold">Selesai</span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="bg-white hover:bg-green-light">
+                                                        <td class="py-4 px-6 border-b border-grey-light">New York</td>
+                                                        <td class="py-4 px-6 border-b border-grey-light">
+                                                            <span class="px-2">Rp. 100,000</span>
+                                                        </td>
+                                                        <td class="py-4 px-6 border-b border-grey-light">
+                                                            <span class="bg-yellow-200 px-2 rounded-md text-yellow-600 font-semibold">Ongoing</span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
 

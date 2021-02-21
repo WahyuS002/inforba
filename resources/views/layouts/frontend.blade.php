@@ -20,6 +20,8 @@
         @yield('content')
     </div>
 
+    @include('includes.frontend.footer')
+
     @include('includes.frontend.bottom-navbar')
 
     @include('includes.frontend.script')

@@ -41,11 +41,31 @@
         Kategori Populer
     </h2>
     <div class="grid grid-cols-1 lg:grid-cols-5 space-y-2 lg:space-y-0 lg:space-x-2 mt-8 justify-items-center">
-        <div class="w-11/12 h-52 lg:h-72 bg-gray-400 rounded-md"></div>
-        <div class="w-11/12 h-52 lg:h-72 bg-gray-400 rounded-md"></div>
-        <div class="w-11/12 h-52 lg:h-72 bg-gray-400 rounded-md"></div>
-        <div class="w-11/12 h-52 lg:h-72 bg-gray-400 rounded-md"></div>
-        <div class="w-11/12 h-52 lg:h-72 bg-gray-400 rounded-md"></div>
+        <div class="w-11/12 h-52 lg:h-72 bg-gray-400 rounded-md overflow-hidden relative">
+            <div class="w-full h-16 bg-black absolute top-0 opacity-30" style="filter: blur(8px);"></div>
+            <img class="w-full h-full object-cover" src="{{ asset('asset/img/category/programming.jpg') }}" alt="">
+            <p class="absolute top-3 left-3 text-white font-bold text-xl">Programming</p>
+        </div>
+        <div class="w-11/12 h-52 lg:h-72 bg-gray-400 rounded-md overflow-hidden relative">
+            <div class="w-full h-16 bg-black absolute top-0 opacity-30" style="filter: blur(8px);"></div>
+            <img class="w-full h-full object-cover" src="{{ asset('asset/img/category/design.jpg') }}" alt="">
+            <p class="absolute top-3 left-3 text-white font-bold text-xl">Desain</p>
+        </div>
+        <div class="w-11/12 h-52 lg:h-72 bg-gray-400 rounded-md overflow-hidden relative">
+            <div class="w-full h-16 bg-black absolute top-0 opacity-30" style="filter: blur(8px);"></div>
+            <img class="w-full h-full object-cover" src="{{ asset('asset/img/category/videography.jpg') }}" alt="">
+            <p class="absolute top-3 left-3 text-white font-bold text-xl">Videografi</p>
+        </div>
+        <div class="w-11/12 h-52 lg:h-72 bg-gray-400 rounded-md overflow-hidden relative">
+            <div class="w-full h-16 bg-black absolute top-0 opacity-30" style="filter: blur(8px);"></div>
+            <img class="w-full h-full object-cover" src="{{ asset('asset/img/category/poetry.jpg') }}" alt="">
+            <p class="absolute top-3 left-3 text-white font-bold text-xl">Puisi</p>
+        </div>
+        <div class="w-11/12 h-52 lg:h-72 bg-gray-400 rounded-md overflow-hidden relative">
+            <div class="w-full h-16 bg-black absolute top-0 opacity-30" style="filter: blur(8px);"></div>
+            <img class="w-full h-full object-cover" src="{{ asset('asset/img/category/cooking.jpg') }}" alt="">
+            <p class="absolute top-3 left-3 text-white font-bold text-xl">Memasak</p>
+        </div>
     </div>
     <!-- END POPULAR CATEGORY -->
 

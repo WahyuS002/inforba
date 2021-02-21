@@ -16,7 +16,7 @@
                             <div class="flex justify-between mt-5 text-gray-100">
                                 <div>
                                     <span class="font-semibold">Pemasukan</span>
-                                    <p class="text-sm mt-2">Rp. 0</p>
+                                    <p class="text-sm mt-2">Rp. {{ ( $user->transactions != null ) ? number_format($user->transactions->sum('amount')) : 0 }}</p>
                                 </div>
                                 <div>
                                     <span class="font-semibold">Pengeluaran</span>
@@ -26,7 +26,38 @@
                         </div>
                     </div>
                     <div class="w-3/5">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, velit sequi, facilis maiores cupiditate quo consequuntur iure dolorem fugiat magni optio eos eaque voluptatum, corporis non nesciunt unde architecto labore.
+                        <!-- component -->
+                        <div class="bg-gray-100 px-3 rounded">
+                            <table class="text-left w-full border-separate" style="border-spacing: 0 20px;"> <!--Border collapse doesn't work on this site yet but it's available in newer tailwind versions -->
+                                <thead>
+                                    <tr>
+                                        <th class="py-4 px-6 bg-gray-100 text-gray-400 font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Nama Lomba</th>
+                                        <th class="py-4 px-6 bg-gray-100 text-gray-400 font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Total Hadiah</th>
+                                        <th class="py-4 px-6 bg-gray-100 text-gray-400 font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white hover:bg-green-light py-2">
+                                        <td class="py-4 px-6 border-b border-grey-light">New York</td>
+                                        <td class="py-4 px-6 border-b border-grey-light">
+                                            <span class="px-2">Rp. 100,000</span>
+                                        </td>
+                                        <td class="py-4 px-6 border-b border-grey-light">
+                                            <span class="bg-red-300 px-2 rounded-md text-red-700 font-semibold">Selesai</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="bg-white hover:bg-green-light">
+                                        <td class="py-4 px-6 border-b border-grey-light">New York</td>
+                                        <td class="py-4 px-6 border-b border-grey-light">
+                                            <span class="px-2">Rp. 100,000</span>
+                                        </td>
+                                        <td class="py-4 px-6 border-b border-grey-light">
+                                            <span class="bg-yellow-200 px-2 rounded-md text-yellow-600 font-semibold">Ongoing</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
