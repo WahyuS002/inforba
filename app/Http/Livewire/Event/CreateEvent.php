@@ -17,7 +17,7 @@ class CreateEvent extends Component
     public $currentStep = 1;
 
     /* UMUM - STEP 1 */
-    public $question, $question_type, $desc, $closed_at, $max_user, $is_required, $file_rules, $thumbnail;
+    public $question, $question_type, $desc, $closed_at, $max_user, $is_required, $file_rules, $thumbnail, $category;
     public $title = 'Judul Lomba';
     public $i = 1;
     public $inputs = [];
@@ -53,6 +53,7 @@ class CreateEvent extends Component
             [
                 'thumbnail' => 'required|image|max:1024',
                 'desc' => 'required',
+                'category' => 'required',
                 'closed_at' => 'required',
                 'max_user' => 'required',
                 'question.0' => 'required',
@@ -65,6 +66,7 @@ class CreateEvent extends Component
                 'thumbnail.max' => 'max file 1MB',
                 'thumbnail.required' => 'thumbnail wajib diisi',
                 'desc.required' => 'deskripsi wajib diisi',
+                'category.required' => 'deskripsi wajib diisi',
                 'max_user.required' => 'kolom ini wajib diisi',
                 'closed_at.required' => 'kolom ini wajib diisi',
                 'question.0.required' => 'kolom pertanyaan wajib diisi',
@@ -165,6 +167,7 @@ class CreateEvent extends Component
         $event = Event::create([
             'user_id' => auth()->user()->id,
             'title' => $this->title,
+            'title' => $this->category,
             'thumbnail' => $this->thumbnail->store('thumbnail'),
             'desc' => $this->desc,
             'max_user' => $this->max_user,
@@ -209,5 +212,7 @@ class CreateEvent extends Component
         Event::find($event->id)->update([
             'total_prize' => $event->prizes->sum('prize'),
         ]);
+
+        return redirect()->route('app.event');
     }
 }

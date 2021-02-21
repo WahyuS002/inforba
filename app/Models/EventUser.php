@@ -12,4 +12,14 @@ class EventUser extends Model
     protected $table = 'event_user';
 
     protected $fillable = ['user_id', 'event_id', 'answer'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function event()
+    {
+        return $this->belongsTo(Event::class, 'event_id');
+    }
 }

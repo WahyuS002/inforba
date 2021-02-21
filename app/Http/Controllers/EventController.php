@@ -10,7 +10,11 @@ class EventController extends Controller
 {
     public function index()
     {
-        return view('backend.event.index');
+        $user_id = auth()->user()->id;
+        $event = Event::where('user_id', $user_id)->get();
+        $eventUser = EventUser::where('user_id', $user_id)->get();
+
+        return view('backend.event.index', compact('event', 'eventUser'));
     }
 
     public function create()

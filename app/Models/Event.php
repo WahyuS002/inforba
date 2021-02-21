@@ -10,7 +10,7 @@ class Event extends Model
 {
     use HasFactory, Sluggable;
 
-    protected $fillable = ['user_id', 'title', 'thumbnail', 'desc', 'max_user', 'total_prize', 'closed_at'];
+    protected $fillable = ['user_id', 'title', 'thumbnail', 'category', 'desc', 'max_user', 'total_prize', 'closed_at'];
 
     public function getRouteKeyName()
     {

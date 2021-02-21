@@ -47,39 +47,56 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr class="bg-white hover:bg-green-light py-2">
-                                                        <td class="py-4 px-6 border-b border-grey-light">New York</td>
-                                                        <td class="py-4 px-6 border-b border-grey-light">
-                                                            <span class="px-2">Rp. 100,000</span>
-                                                        </td>
-                                                        <td class="py-4 px-6 border-b border-grey-light">
-                                                            <span class="bg-red-300 px-2 rounded-md text-red-700 font-semibold">Selesai</span>
-                                                        </td>
-                                                    </tr>
+                                                    @foreach ($eventUser as $e)
                                                     <tr class="bg-white hover:bg-green-light">
-                                                        <td class="py-4 px-6 border-b border-grey-light">New York</td>
+                                                        <td class="py-4 px-6 border-b border-grey-light">{{ $e->event->title }}</td>
                                                         <td class="py-4 px-6 border-b border-grey-light">
-                                                            <span class="px-2">Rp. 100,000</span>
+                                                            <span class="px-2">Rp. {{ ($e->event->total_prize > 1000) ? $e->event->total_prize / 1000 . 'K' :  $e->event->total_prize}}</span>
                                                         </td>
                                                         <td class="py-4 px-6 border-b border-grey-light">
                                                             <span class="bg-yellow-200 px-2 rounded-md text-yellow-600 font-semibold">Ongoing</span>
                                                         </td>
                                                     </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
 
                                     <div class="hidden" id="tab-settings">
-                                        <p>
-                                            Completely synergize resource taxing relationships via
-                                            premier niche markets. Professionally cultivate one-to-one
-                                            customer service with robust ideas.
-                                            <br />
-                                            <br />
-                                            Dynamically innovate resource-leveling customer service for
-                                            state of the art customer service.
-                                        </p>
+                                        <div class="flex flex-wrap">
+                                            @foreach ($event as $e)
+                                            <article class="m-5 overflow-hidden max-w-xs rounded-lg shadow-lg">
+                                                <a href="{{ route('public.event-detail', $e->slug) }}">
+                                                    <img alt="Placeholder" class="block h-auto w-full" src="{{ asset('storage/' . $e->thumbnail ) }}"/>
+                                                </a>
+
+                                                <header class="flex items-center justify-between leading-tight p-2 md:p-4">
+                                                    <h1 class="text-lg">
+                                                        <a class="no-underline hover:underline text-black" href="#">
+                                                            {{ $e->title }}
+                                                        </a>
+                                                    </h1>
+                                                    <p class="text-grey-darker text-sm"> {{ \Carbon\Carbon::parse($e->closed_at)->diffForHumans()}} </p>
+                                                </header>
+
+                                                <footer class="flex items-center justify-between leading-none p-2 md:p-4">
+                                                    <a class="flex items-center no-underline hover:underline text-black" href="#">
+                                                        <img alt="Placeholder" class="block rounded-full" src="https://picsum.photos/32/32/?random"/>
+                                                        <p class="ml-2 text-sm">{{ $e->user->name }}</p>
+                                                    </a>
+                                                    <a class="no-underline text-grey-darker hover:text-red-dark" href="#">
+                                                        <span class="hidden">Like</span>
+                                                        <i>
+                                                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                                                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+                                                            </svg>
+                                                        </i>
+                                                    </a>
+                                                </footer>
+                                            </article>
+                                            @endforeach
+                                        </div>
                                     </div>
                                 </div>
                             </div>

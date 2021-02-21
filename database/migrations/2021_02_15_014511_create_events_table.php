@@ -18,6 +18,7 @@ class CreateEventsTable extends Migration
             $table->foreignId('user_id')->constrained();
             $table->string('title');
             $table->string('slug');
+            $table->enum('category', ['programming', 'desain', 'videografi', 'puisi', 'memasak']);
             $table->string('thumbnail');
             $table->text('desc');
             $table->integer('max_user');

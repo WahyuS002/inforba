@@ -71,6 +71,18 @@
                         @error('closed_at')<span class="mt-2 text-sm text-red-500 block text-danger">{{ $message }}</span>@enderror
                     </div>
                     <div>
+                        <label class="text-violet-light" for="category">Kategori <span class="text-red-500">*</span></label>
+                        <select class="block text-sm mt-2 rounded-md text-violet-light bg-green-light border-none" name="category" id="category" wire:model="category">
+                            <option value="" selected>Kateogri</option>
+                            <option value="programming">Programming</option>
+                            <option value="desain">Desain</option>
+                            <option value="videografi">Videografi</option>
+                            <option value="puisi">Puisi</option>
+                            <option value="memasak">Memasak</option>
+                        </select>
+                        @error('category')<span class="mt-2 text-sm text-red-500 block text-danger">{{ $message }}</span>@enderror
+                    </div>
+                    <div>
                         <label class="text-violet-light" for="max_user">Jumlah Peserta <span class="text-red-500">*</span></label>
                         <input id="max_user" class="mt-3 block rounded-lg border-none text-violet-light bg-green-light" type="number" wire:model="max_user">
                         @error('max_user')<span class="mt-2 text-sm text-red-500 block text-danger">{{ $message }}</span>@enderror
@@ -103,6 +115,7 @@
                     </div>
                     <div>
                         <select class="rounded-md text-sm text-violet-light" wire:model="question_type.0" id="">
+                            <option value="" selected>Tipe Pertanyaan</option>
                             <option value="1">Jawaban Pendek</option>
                             <option value="2">Paragraf</option>
                             <option value="" disabled="disabled">—————————</option>

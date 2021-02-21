@@ -37,24 +37,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="bg-white hover:bg-green-light py-2">
-                                        <td class="py-4 px-6 border-b border-grey-light">New York</td>
-                                        <td class="py-4 px-6 border-b border-grey-light">
-                                            <span class="px-2">Rp. 100,000</span>
-                                        </td>
-                                        <td class="py-4 px-6 border-b border-grey-light">
-                                            <span class="bg-red-300 px-2 rounded-md text-red-700 font-semibold">Selesai</span>
-                                        </td>
-                                    </tr>
+                                    @foreach ($eventUser as $e)
                                     <tr class="bg-white hover:bg-green-light">
-                                        <td class="py-4 px-6 border-b border-grey-light">New York</td>
+                                        <td class="py-4 px-6 border-b border-grey-light">{{ $e->event->title }}</td>
                                         <td class="py-4 px-6 border-b border-grey-light">
-                                            <span class="px-2">Rp. 100,000</span>
+                                            <span class="px-2">Rp. {{ ($e->event->total_prize > 1000) ? $e->event->total_prize / 1000 . 'K' :  $e->event->total_prize}}</span>
                                         </td>
                                         <td class="py-4 px-6 border-b border-grey-light">
                                             <span class="bg-yellow-200 px-2 rounded-md text-yellow-600 font-semibold">Ongoing</span>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
