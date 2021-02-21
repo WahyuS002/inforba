@@ -76,7 +76,7 @@
     <div class="flex mt-8 space-x-12 justify-center">
         <!-- START CARD -->
         <article class="overflow-hidden max-w-xs rounded-lg shadow-lg">
-            <a href="{{ route('public.event-detail') }}">
+            <a href="{{ route('public.event-detail', 'testing') }}">
                 <img alt="Placeholder" class="block h-auto w-full" src="https://picsum.photos/600/400/?random"/>
             </a>
 

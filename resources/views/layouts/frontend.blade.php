@@ -9,6 +9,8 @@
     @include('includes.frontend.style')
     @yield('style-below')
 
+    <livewire:styles>
+
     <title>@yield('title')</title>
 </head>
 <body>
@@ -26,6 +28,8 @@
 
     @include('includes.frontend.script')
     @yield('script-below')
+
+    <livewire:scripts>
 
 </body>
 </html>

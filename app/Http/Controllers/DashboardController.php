@@ -12,4 +12,9 @@ class DashboardController extends Controller
 
         return view('backend.dashboard', compact('user'));
     }
+
+    public function notifications()
+    {
+        return view('backend.user.notifications');
+    }
 }

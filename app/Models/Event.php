@@ -12,6 +12,11 @@ class Event extends Model
 
     protected $fillable = ['user_id', 'title', 'thumbnail', 'desc', 'max_user', 'total_prize', 'closed_at'];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function sluggable(): array
     {
         return [

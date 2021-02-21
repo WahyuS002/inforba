@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'PagesController@home')->name('public.home');
-Route::get('/event-detail', 'PagesController@eventDetail')->name('public.event-detail');
+Route::get('/event-detail/{event}', 'PagesController@eventDetail')->name('public.event-detail');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::middleware(['checkRole:admin'])->group(function () {
@@ -27,6 +27,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/event-create', 'EventController@create')->name('app.event.create');
     Route::get('/event-registration', 'EventController@registration')->name('app.event.registration');
     Route::get('/event-payment/{event:slug}', 'EventController@payment')->name('app.event.payment');
+
+    Route::get('/notifications', 'DashboardController@notifications')->name('notifications');
 });
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return view('dashboard');

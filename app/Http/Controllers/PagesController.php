@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -11,8 +12,10 @@ class PagesController extends Controller
         return view('public.home');
     }
 
-    public function eventDetail()
+    public function eventDetail($slug)
     {
+        $event = Event::where('slug', $slug)->first();
+
         return view('public.event.detail');
     }
 }
