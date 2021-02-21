@@ -9,7 +9,9 @@ class PagesController extends Controller
 {
     public function home()
     {
-        return view('public.home');
+        $event = Event::latest()->take(6)->get();
+
+        return view('public.home', compact('event'));
     }
 
     public function eventDetail($slug)

@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('title')
-    Lombaku - Beranda
+Lombaku - Beranda
 @endsection
 
 @section('content')
@@ -38,7 +38,7 @@
 
     <!-- START POPULAR CATEGORY -->
     <h2 class="text-xl lg:text-2xl font-bold text-violet-middle mt-12 lg:mt-0">
-        Kategori Populer
+        Kategori
     </h2>
     <div class="grid grid-cols-1 lg:grid-cols-5 space-y-2 lg:space-y-0 lg:space-x-2 mt-8 justify-items-center">
         <div class="w-11/12 h-52 lg:h-72 bg-gray-400 rounded-md overflow-hidden relative">
@@ -75,35 +75,40 @@
     </h2>
     <div class="flex mt-8 space-x-12 justify-center">
         <!-- START CARD -->
-        <article class="overflow-hidden max-w-xs rounded-lg shadow-lg">
-            <a href="{{ route('public.event-detail', 'testing') }}">
-                <img alt="Placeholder" class="block h-auto w-full" src="https://picsum.photos/600/400/?random"/>
-            </a>
+        <div class="flex flex-wrap">
+            @foreach ($event as $e)
+            <article class="m-5 overflow-hidden max-w-xs rounded-lg shadow-lg">
+                <a href="{{ route('public.event-detail', $e->slug) }}">
+                    <img alt="Placeholder" class="block h-auto w-full" src="{{ asset('storage/' . $e->thumbnail ) }}"/>
+                </a>
 
-            <header class="flex items-center justify-between leading-tight p-2 md:p-4">
-                <h1 class="text-lg">
-                    <a class="no-underline hover:underline text-black" href="#">
-                        Article Title
+                <header class="flex items-center justify-between leading-tight p-2 md:p-4">
+                    <h1 class="text-lg">
+                        <a class="no-underline hover:underline text-black" href="#">
+                            {{ $e->title }}
+                        </a>
+                    </h1>
+                    <p class="text-grey-darker text-sm"> {{ \Carbon\Carbon::parse($e->closed_at)->diffForHumans()}} </p>
+                </header>
+
+                <footer class="flex items-center justify-between leading-none p-2 md:p-4">
+                    <a class="flex items-center no-underline hover:underline text-black" href="#">
+                        <img alt="Placeholder" class="block rounded-full" src="https://picsum.photos/32/32/?random"/>
+                        <p class="ml-2 text-sm">{{ $e->user->name }}</p>
                     </a>
-                </h1>
-                <p class="text-grey-darker text-sm">11/1/19</p>
-            </header>
+                    <a class="no-underline text-grey-darker hover:text-red-dark" href="#">
+                        <span class="hidden">Like</span>
+                        <i>
+                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+                            </svg>
+                        </i>
+                    </a>
+                </footer>
+            </article>
+            @endforeach
+        </div>
 
-            <footer class="flex items-center justify-between leading-none p-2 md:p-4">
-                <a class="flex items-center no-underline hover:underline text-black" href="#">
-                    <img alt="Placeholder" class="block rounded-full" src="https://picsum.photos/32/32/?random"/>
-                    <p class="ml-2 text-sm">Author Name</p>
-                </a>
-                <a class="no-underline text-grey-darker hover:text-red-dark" href="#">
-                    <span class="hidden">Like</span>
-                    <i>
-                        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
-                        </svg>
-                    </i>
-                </a>
-            </footer>
-        </article>
         <!-- END CARD -->
     </div>
     <!-- END CURRENT EVENT -->

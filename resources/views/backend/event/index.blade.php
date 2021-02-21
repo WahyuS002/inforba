@@ -11,7 +11,7 @@
                 <div class="flex flex-wrap" id="tabs-id">
                     <div class="w-full">
                         <div class="flex justify-between items-center">
-                            <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row lg:w-1/2">
+                            <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row lg:w-1/2 space-y-3 lg:space-y-0">
                                 <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
                                     <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal text-white bg-green-dark" onclick="changeAtiveTab(event,'tab-profile')">
                                         <i class="fas fa-space-shuttle text-base mr-1"></i>  Lomba yang diikuti
@@ -32,12 +32,12 @@
                             </a>
                         </div>
 
-                        <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 rounded">
+                        <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 rounded overflow-auto lg:overflow-hidden">
                             <div class="px-4 py-5 flex-auto">
                                 <div class="tab-content tab-space">
                                     <div class="block" id="tab-profile">
                                         <!-- component -->
-                                        <div class="bg-gray-100 px-3 rounded">
+                                        <div class="bg-gray-100 w-96 md:w-full lg:w-full px-3 rounded">
                                             <table class="text-left w-full border-separate" style="border-spacing: 0 20px;"> <!--Border collapse doesn't work on this site yet but it's available in newer tailwind versions -->
                                                 <thead>
                                                     <tr>

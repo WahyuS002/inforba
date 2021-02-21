@@ -85,4 +85,11 @@
         <span class="font-semibold text-violet-light">{{ $event->desc }}</span>
     </div>
 </div>
+
+<div class="text-center mt-8">
+    <button class="bg-green-dark px-3 rounded-md py-1 text-white text-lg hover:bg-green-600 font-semibold">
+        <a href="{{ route('app.event.registration', $event->slug) }}">Daftar Sekarang</a>
+    </button>
+</div>
+
 @endsection
