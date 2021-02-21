@@ -25,8 +25,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('/event', 'EventController@index')->name('app.event');
     Route::get('/event-create', 'EventController@create')->name('app.event.create');
-    Route::get('/event-registration', 'EventController@registration')->name('app.event.registration');
-    Route::get('/event-payment/{event:slug}', 'EventController@payment')->name('app.event.payment');
+    Route::get('/event-registration/{event}', 'EventController@registration')->name('app.event.registration');
+    Route::get('/event-payment/{event}', 'EventController@payment')->name('app.event.payment');
+
+    Route::post('/event-user-registration/{event}', 'EventController@userRegistration')->name('user.registration');
 
     Route::get('/notifications', 'DashboardController@notifications')->name('notifications');
 });

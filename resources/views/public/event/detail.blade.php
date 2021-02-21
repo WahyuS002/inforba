@@ -7,12 +7,12 @@
 @section('content')
 <div class="mt-28 lg:px-60">
     <h1 class="font-bold font-dosis text-green-dark text-4xl lg:text-5xl text-center">
-        Lomba Web Desain Himatif
+        {{ $event->title }}
     </h1>
 <h3 class="mt-6 font-semibold font-dosis text-violet-dark text-xl text-center">
-    Dibuat Oleh Wahyu Syahputra
+    Dibuat Oleh {{ $event->user->name }}
 </h3>
-    <div class="mt-6 flex flex-col lg:flex-row justify-center space-y-2 lg:space-x-4 font-semibold font-montserrat text-xs lg:text-sm">
+    <div class="mt-6 flex flex-col lg:flex-row justify-center space-y-2 lg:space-y-0 lg:space-x-4 font-semibold font-montserrat text-xs lg:text-sm">
         <div class="flex justify-center lg:justify-start items-center space-x-4">
             <span>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,7 +21,7 @@
                     fill="#9898B3"/>
                 </svg>
             </span>
-            <span class="text-violet-light">43 / 50</span>
+            <span class="text-violet-light">{{ count($event->users) }} / {{ $event->max_user }}</span>
         </div>
         <div class="flex justify-center lg:justify-start items-center space-x-2">
             <span>
@@ -29,7 +29,7 @@
                     <path d="M12 2C9.243 2 7 4.243 7 7C7 9.757 9.243 12 12 12C14.757 12 17 9.757 17 7C17 4.243 14.757 2 12 2ZM12 10C10.346 10 9 8.654 9 7C9 5.346 10.346 4 12 4C13.654 4 15 5.346 15 7C15 8.654 13.654 10 12 10ZM21 21V20C21 16.141 17.859 13 14 13H10C6.14 13 3 16.141 3 20V21H5V20C5 17.243 7.243 15 10 15H14C16.757 15 19 17.243 19 20V21H21Z" fill="#9898B3"/>
                 </svg>
             </span>
-            <span class="text-violet-light">SD / SMP (Individu)</span>
+            <span class="text-violet-light">Individu</span>
         </div>
         <div class="flex justify-center lg:justify-start items-center space-x-2">
             <span>
@@ -38,7 +38,7 @@
                     fill="#9898B3"/>
                 </svg>
             </span>
-            <span class="text-violet-light">Rp. 10 JT</span>
+            <span class="text-violet-light">Rp. {{ ($event->total_prize > 1000) ? $event->total_prize / 1000 . 'K' :  $event->total_prize}}</span>
         </div>
         <div class="flex justify-center lg:justify-start items-center space-x-2 px-2 rounded-sm">
             <div class="flex space-x-2 px-2 py-1  rounded-sm bg-red-light">
@@ -48,7 +48,7 @@
                         <path d="M7.33341 4.66667H8.66675V8.27601L6.47141 10.4713L5.52875 9.52867L7.33341 7.72401V4.66667Z" fill="#FF6B72"/>
                     </svg>
                 </span>
-                <span class="text-red-dark text-xs">10 days left</span>
+                <span class="text-red-dark text-xs">{{ \Carbon\Carbon::parse($event->closed_at)->diffForHumans() }}</span>
             </div>
         </div>
     </div>
@@ -56,11 +56,25 @@
 <!-- START CARD SECTION -->
 <div class="mt-12 flex flex-col lg:flex-row space-y-6 lg:space-y-0 lg:space-x-12">
     <div class="w-full lg:w-3/5 border border-violet-light rounded-md">
-        <img alt="Placeholder" class="block h-auto w-full p-3 rounded-md" src="https://picsum.photos/600/400/?random"/>
+        <img alt="Placeholder" class="block h-auto w-full p-3 object-cover rounded-md" src="{{ asset('storage/' . $event->thumbnail) }}"/>
     </div>
     <div class="w-full lg:w-2/5 p-3 border border-violet-light rounded-md">
-        <div class="text-center">
-            <span>Timeline</span>
+        <div class="text-center mb-8">
+            <span class="text-2xl text-violet-middle font-bold">Timeline</span>
+        </div>
+
+        <div class="space-y-3 overflow-auto h-80">
+            @foreach ($event->timelines as $item)
+            <div class="flex items-center border border-violet-light rounded-md">
+                <div class="flex flex-col items-center font-montserrat p-3">
+                    <div class="rounded-full border border-green-dark w-10 h-10 bg-green-light flex items-center justify-center">
+                        <p class="text-green-dark font-bold text-md">{{ \Carbon\Carbon::parse($item->timeline)->format('d') }}</p>
+                    </div>
+                    <p class="text-green-dark font-medium text-md">{{ \Carbon\Carbon::parse($item->timeline)->format('M') }}</p>
+                </div>
+                <span class="font-semibold text-lg text-violet-light">Launching Re-Cloud Challenges Indonesia</span>
+            </div>
+            @endforeach
         </div>
     </div>
 </div>
@@ -68,7 +82,7 @@
 <div class="mt-12">
     <h4 class="font-montserrat font-bold text-xl lg:text-2xl text-violet-middle">Deskripsi</h4>
     <div class="mt-4">
-        <span class="font-semibold text-violet-light">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero voluptatem laudantium debitis adipisci officiis, velit sed eos eveniet optio dolor voluptas voluptates nam, qui incidunt obcaecati, recusandae vero quas dolores?</span>
+        <span class="font-semibold text-violet-light">{{ $event->desc }}</span>
     </div>
 </div>
 @endsection

@@ -16,6 +16,6 @@ class PagesController extends Controller
     {
         $event = Event::where('slug', $slug)->first();
 
-        return view('public.event.detail');
+        return view('public.event.detail', compact('event'));
     }
 }
